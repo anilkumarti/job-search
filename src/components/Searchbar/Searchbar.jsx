@@ -13,7 +13,7 @@ const Searchbar = (props) => {
       [e.target.name]: e.target.value,
     }));
   };
-  console.log("dd", jobCreteria);
+ 
   const search = async () => {
     await props.fetchJobsCustom(jobCreteria);
     console.log("search function is working", props);

@@ -14,7 +14,7 @@ const JobCard = (props) => {
           <h1 className="text-lg font-semibold">{props.title}-{props.company} </h1>
           <p> {props.type} &#x2022;{props.experience} &#x2022; {props.location}</p>
           <div className="flex item-center justify-between gap-2">
-            {console.log(props)}
+          
             {props.skills.map((skill,index) => (
               <p key={index} className="text-gray-500 py-1 px-2 rounded-md border border-black">{skill}</p>
             ))}

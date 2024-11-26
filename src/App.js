@@ -14,6 +14,8 @@ import {
   where,
 } from "firebase/firestore";
 import { db } from "./firebase-config";
+import AddJobs from "./Addjobs/addJobs";
+import Login from "./components/login/Login";
 
 function App() {
   const [jobs, setJobs] = useState([]);
@@ -23,14 +25,14 @@ function App() {
     const tempJobs = []; 
     try {
       const jobsRef = query(collection(db, "jobs"));
-      const q = query(jobsRef, orderBy("postedOn", "desc"), limit(3));
+      const q = query(jobsRef, orderBy("postedOn", "desc"), limit(31));
 
       const req = await getDocs(q);
       req.forEach((job) => {
         tempJobs.push({
           ...job.data(),
           id: job.id,
-          postedOn: job.data().postedOn.toDate(),
+          postedOn: job.data().postedOn,
         });
       });
       setJobs(tempJobs);
@@ -58,7 +60,7 @@ function App() {
         tempJobs.push({
           ...job.data(),
           id: job.id,
-          postedOn: job.data().postedOn.toDate(),
+          postedOn: job.data().postedOn,
         });
       });
       setJobs(tempJobs);
@@ -89,6 +91,7 @@ function App() {
       {jobs.map((job) => (
         <JobCard key={job.id} {...job} />
       ))}
+      <Login/>
     </div>
   );
 }
