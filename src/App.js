@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import Header from "./components/Header/Header";
 import JobCard from "./components/JobCard/JobCard";
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Navbar from "./components/Navbar/Navbar";
 import Searchbar from "./components/Searchbar/Searchbar";
 import {
@@ -14,8 +15,7 @@ import {
   where,
 } from "firebase/firestore";
 import { db } from "./firebase-config";
-import AddJobs from "./Addjobs/addJobs";
-import Login from "./components/login/Login";
+
 
 function App() {
   const [jobs, setJobs] = useState([]);
@@ -80,6 +80,7 @@ function App() {
   }, []);
   return (
     <div>
+      <ToastContainer/>
       <Navbar />
       <Header />
        
@@ -91,7 +92,7 @@ function App() {
       {jobs.map((job) => (
         <JobCard key={job.id} {...job} />
       ))}
-      <Login/>
+     
     </div>
   );
 }

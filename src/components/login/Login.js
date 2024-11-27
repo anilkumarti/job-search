@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import {signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase-config';
 import { toast } from 'react-toastify';
-const Login = () => {
+import 'react-toastify/dist/ReactToastify.css';
+const Login = ({onLoginSuccess}) => {
     const [inputPassword,setInputPassword]=useState('');
     const [inputEmail,setInputEmail]=useState('');
     
@@ -11,14 +12,20 @@ const Login = () => {
         e.preventDefault()
       
       try {
-       signInWithEmailAndPassword(auth,inputEmail,inputPassword)
-         console.log("login successully")
-       toast.success("Login successfully");
-         
+        const cred= await signInWithEmailAndPassword(auth,inputEmail,inputPassword)
+         console.log("login successully", cred)
+         toast.success("Login successful", {
+          position: "top-center",
+          autoClose: 3000,
+      });
+         onLoginSuccess();
          
       } catch (error) {
         console.log("error in signing in");
-        toast.warning("login failed")
+        toast.error("Login failed: " + error.message, {
+          position: "top-center",
+          autoClose: 3000,
+      })
       }
         
     }
