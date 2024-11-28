@@ -13,7 +13,8 @@ const Searchbar = (props) => {
       [e.target.name]: e.target.value,
     }));
   };
- 
+
+
   const search = async () => {
     await props.fetchJobsCustom(jobCreteria);
     console.log("search function is working", props);
@@ -26,7 +27,7 @@ const Searchbar = (props) => {
         value={jobCreteria.title}
         className="w-64 py-3 pl-4 bg-zinc-200 font-semibold rounded-md"
       >
-        <option value="" disabled hidden selected>
+        <option value="" disabled hidden>
           Job Role
         </option>
         <option value="Frontend Developer">Frontend Developer</option>
@@ -43,7 +44,7 @@ const Searchbar = (props) => {
         value={jobCreteria.type}
         className="w-64 py-3 pl-4 bg-zinc-200 font-semibold rounded-md"
       >
-        <option value="" disabled hidden selected>
+        <option value="" disabled hidden>
           Job Type
         </option>
         <option value="Remote"> Remote </option>
@@ -56,7 +57,7 @@ const Searchbar = (props) => {
         value={jobCreteria.location}
         className="w-64 py-3 pl-4 bg-zinc-200 font-semibold rounded-md"
       >
-        <option value="" disabled hidden selected>
+        <option value="" disabled hidden>
           {" "}
           Location
         </option>
@@ -64,7 +65,7 @@ const Searchbar = (props) => {
         <option value="Delhi"> Delhi </option>
         <option value="Gurugram"> Gurugram</option>
         <option value="Hyedarabad"> Hyedrabad</option>
-        <option value="Bengaluru"> Bengalru</option>
+        <option value="Bengaluru"> Bengluru</option>
       </select>
       <select
         onChange={handleChange}
@@ -72,15 +73,22 @@ const Searchbar = (props) => {
         value={jobCreteria.experience}
         className="w-64 py-3 pl-4 bg-zinc-200 font-semibold rounded-md"
       >
-        <option value="" disabled hidden selected>
+        <option value="" disabled hidden >
          
           Experience
         </option>
         <option value="0"> Experience </option>
-        <option value="1"> 0-2 </option>
-        <option value="2"> 2-5 </option>
-        <option value="5"> 5-12 </option>
-        <option value="12"> 12-15 </option>
+        <option value="1"> 1 year  </option>
+        <option value="2"> 2 years</option>
+        <option value="3"> 3 years</option>
+        <option value="4"> 4 years</option>
+        <option value="5"> 5 years </option>
+        <option value="6"> 6 years</option>
+        <option value="7"> 7 years</option>
+        <option value="8"> 8 years</option>
+        <option value="9"> 9 years</option>
+        <option value="10"> 10 years</option>
+
       </select>
       <button
         onClick={search}

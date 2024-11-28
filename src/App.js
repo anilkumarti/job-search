@@ -50,13 +50,15 @@ function App() {
     if (unsubscribe) unsubscribe();
 
     try {
+      const filters = [];
+if (jobCreteria.type) filters.push(where("type", "==", jobCreteria.type));
+if (jobCreteria.title) filters.push(where("title", "==", jobCreteria.title));
+if (jobCreteria.experience) filters.push(where("experience", "==", jobCreteria.experience));
+if (jobCreteria.location) filters.push(where("location", "==", jobCreteria.location));
+
       const jobsRef = query(
         collection(db, "jobs"),
-        where("type", "==", jobCreteria.type),
-        where("title", "==", jobCreteria.title),
-        where("experience", "==", jobCreteria.experience),
-        where("location", "==", jobCreteria.location),
-        orderBy("postedOn", "desc"),
+       ...filters, orderBy("postedOn","desc"),
         limit(15)
       );
 
