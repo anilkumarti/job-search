@@ -53,40 +53,41 @@ setCurrValue((prev)=> ({
   };
 
   return (
-    <div>
-      <form>
-        <label> Enter job title</label>
-        <input
+    <div className="p-8 bg-gray-100 min-h-screen flex items-center justify-center">
+      <form className="bg-white shadow-lg rounded-lg p-6 max-w-lg w-full">
+      <h2 className="text-2xl font-bold mb-6 text-gray-800"> Add Jobs</h2>
+        <label className="block text-sm font-medium mb-2"> Enter job title</label>
+        <input  className="w-full border border-gray-300 rounded-md p-2 mb-4"
           name="title"
           type="text"
           onChange={(e) => handleInput(e.target.name, e.target.value)}
         />
-        <label> Enter experience needed</label>
-        <input
+        <label className="block text-sm font-medium mb-2"> Enter experience needed</label>
+        <input  className="w-full border border-gray-300 rounded-md p-2 mb-4"
           name="experience"
           type="number"
           onChange={(e) => handleInput(e.target.name, e.target.value)}
         />
-        <label> Enter job link</label>
-        <input
+        <label className="block text-sm font-medium mb-2"> Enter job link</label>
+        <input  className="w-full border border-gray-300 rounded-md p-2 mb-4"
           name="job link"
           type="text"
           onChange={(e) => handleInput(e.target.name, e.target.value)}
         />
-        <label> Enter location</label>
-        <input
+        <label className="block text-sm font-medium mb-2"> Enter location</label>
+        <input  className="w-full border border-gray-300 rounded-md p-2 mb-4"
           name="location"
           type="text"
           onChange={(e) => handleInput(e.target.name, e.target.value)}
         />
-        <label> Enter job posting date</label>
-        <input
+        <label className="block text-sm font-medium mb-2"> Enter job posting date</label>
+        <input  className="w-full border border-gray-300 rounded-md p-2 mb-4"
           name="postedOn"
           type="date"
           onChange={(e) => handleInput(e.target.name, e.target.value)}
         />
-        <label> Enter company's name</label>
-        <input
+        <label className="block text-sm font-medium mb-2"> Enter company's name</label>
+        <input  className="w-full border border-gray-300 rounded-md p-2 mb-4"
           name="company"
           type="text"
           onChange={(e) => handleInput(e.target.name, e.target.value)}
@@ -97,9 +98,9 @@ setCurrValue((prev)=> ({
           type="text"
           onChange={(e) => handleInput(e.target.name, e.target.value)}
         /> */}
-        <label> Enter skills needed</label>
+        <label className="block text-sm font-medium mb-2"> Enter skills needed</label>
         { currValue.skills.map((skill,index)=> (
-          <div key={index}>  <input
+          <div  className="flex items-center mb-4" key={index}>  <input
           name="skills"
           type="text"
           value={skill}
