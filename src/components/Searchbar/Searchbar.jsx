@@ -29,11 +29,13 @@ const Searchbar = (props) => {
         <option value="" disabled hidden selected>
           Job Role
         </option>
-        <option value="React js Developer"> React js Developer</option>
-        <option value="Data scientist"> Data scientist</option>
-        <option value="HR"> HR</option>
-        <option value="Full stack developer"> Full stack developer</option>
-        <option value="office help"> office help</option>
+        <option value="Frontend Developer">Frontend Developer</option>
+    <option value="Backend Developer">Backend Developer</option>
+    <option value="Full Stack Developer">Full Stack Developer</option>
+    <option value="React.js Developer">React.js Developer</option>
+    <option value="Angular Developer">Angular Developer</option>
+    <option value="DevOps Engineer">DevOps Engineer</option>
+    <option value="Mobile App Developer">Mobile App Developer</option>
       </select>
       <select
         onChange={handleChange}
@@ -61,6 +63,8 @@ const Searchbar = (props) => {
         <option value="Pune"> Pune </option>
         <option value="Delhi"> Delhi </option>
         <option value="Gurugram"> Gurugram</option>
+        <option value="Hyedarabad"> Hyedrabad</option>
+        <option value="Bengaluru"> Bengalru</option>
       </select>
       <select
         onChange={handleChange}
@@ -72,9 +76,11 @@ const Searchbar = (props) => {
          
           Experience
         </option>
-        <option value="Fresher"> Fresher </option>
-        <option value="0-2"> 0-2 </option>
-        <option value="2-5"> 2-5 </option>
+        <option value="0"> Experience </option>
+        <option value="1"> 0-2 </option>
+        <option value="2"> 2-5 </option>
+        <option value="5"> 5-12 </option>
+        <option value="12"> 12-15 </option>
       </select>
       <button
         onClick={search}
