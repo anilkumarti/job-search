@@ -2,13 +2,13 @@ import dayjs from "dayjs";
 import React from "react";
 
 const JobCard = (props) => {
-  
+    
   const date1 = dayjs(Date.now());
   const diffInDays = date1.diff(props.postedOn, "day");
 
   return (
     <div className="mx-40 mb-4">
-      
+        {console.log('due due',props)}
       <div className="flex justify-between items-center px-6 py-4 bg-zinc-200 rounded-md border border-black shadow-lg hover:border-blue-500 hover:translate-y-1 hover:scale-103">
         <div className="flex flex-col itmes-start gap-3">
           <h1 className="text-lg font-semibold">{props.title}-{props.company} </h1>

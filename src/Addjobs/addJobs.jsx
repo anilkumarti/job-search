@@ -12,6 +12,7 @@ const AddJobs = () => {
     title: "",
     experience: "",
     "job link": "",
+     type: "",
     location: "",
     postedOn: "",
     company: "",
@@ -27,7 +28,7 @@ const AddJobs = () => {
 
     e.preventDefault();
 
-    const { title, experience, location, postedOn, company, skills } = currValue;
+    const { title, experience, location, postedOn, company, skills ,type} = currValue;
 
     if (
       !title.trim() ||
@@ -35,6 +36,7 @@ const AddJobs = () => {
       !location.trim() ||
       !postedOn.trim() ||
       !company.trim() ||
+      !type.trim() ||
       skills.filter((skill) => skill.trim()).length === 0
     ) {
      toast.warning("please fill out all fields", {
@@ -64,6 +66,7 @@ const AddJobs = () => {
        "job link": "",
        location: "",
        postedOn: "",
+        type: "",
        company: "",
        skills: [""],
      }))
@@ -150,14 +153,21 @@ const AddJobs = () => {
           type="text"
           onChange={(e) => handleInput(e.target.name, e.target.value)}
         />
-         <label>Job type</label> 
-       <select> 
-       <option value="Remote">Remote</option>
-       <option value="Hybrid">Hybrid</option>
-       <option value="Office">Office</option>
-       
-       
-       </select>
+       <label className="block text-sm font-medium mb-2">Job Type</label>
+<select
+  name="type"
+  value={currValue.type}
+  onChange={(e) => handleInput(e.target.name, e.target.value)}
+  className="w-full border border-gray-300 rounded-md p-2 mb-4 bg-white text-gray-700 focus:ring-blue-500 focus:border-blue-500 shadow-sm"
+>
+  <option value="" disabled>
+    Select Job Type
+  </option>
+  <option value="Remote">Remote</option>
+  <option value="Hybrid">Hybrid</option>
+  <option value="Office">Office</option>
+</select>
+
         <label className="block text-sm font-medium mb-2">
          
           Enter skills needed
