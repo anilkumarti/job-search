@@ -23,7 +23,12 @@ function App() {
   const fetchJobs = async () => {
     setCustomSearch(false);
 
-    if (unsubscribe) unsubscribe();
+    
+      if (unsubscribe) {
+        unsubscribe();
+        setUnsubscribe(null); // Ensure old listeners are cleared
+      }
+   
 
     try {
       const jobsRef = query(
@@ -83,6 +88,7 @@ if (jobCreteria.location) filters.push(where("location", "==", jobCreteria.locat
       if (unsubscribe) unsubscribe();
     };
   }, []);
+  
   return (
     <div>
       <ToastContainer />
@@ -91,13 +97,20 @@ if (jobCreteria.location) filters.push(where("location", "==", jobCreteria.locat
 
       <Searchbar fetchJobsCustom={fetchJobsCustom} />
       {customSearch && (
+        <div className="flex justify-end mb-2">
         <button onClick={fetchJobs} className="flex pl-[1250px] mb-2 ">
           <p className="bg-blue-500 px-10 py-2 rounded-md text-white ">
             Clear Filter
           </p>
         </button>
+        </div>
       )}
-      {jobs.map((job) => (
+       
+      { jobs.length===0? (
+        <div className="flex justify-center mt-10"> 
+        <p className="text-gray-500 text-lg font-semibold"> No jobs matching... </p>  </div>
+      ) :
+      jobs.map((job) => (
         <JobCard key={job.id} {...job} />
       ))}
     </div>
